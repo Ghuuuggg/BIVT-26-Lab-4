@@ -1,4 +1,6 @@
-﻿namespace Lab4
+using System.Reflection.Metadata.Ecma335;
+
+namespace Lab4
 {
     public class Green
     {
@@ -6,7 +8,24 @@
         {
 
             // code here
-
+            double sum = 0;
+            double count = 0;
+            for (int i  = 0; i < array.Length; i++)
+            {
+                if (array[i] > 0)
+                {
+                    sum += array[i];
+                    count++;    
+                }
+            }
+            double average = sum / count;
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] > 0)
+                  {
+                    array[i] = average;
+                }
+            }
             // end
 
         }
@@ -15,9 +34,25 @@
             int sum = 0;
 
             // code here
+                        int firstNegative = -1;   
 
+            for (int i = 0; i < array.Length && firstNegative == -1; i++)
+            {
+                if (array[i] < 0)
+                {
+                    firstNegative = i;
+                }
+            }
+
+            if (firstNegative != -1)
+            {
+                for (int i = 0; i < firstNegative; i++)
+                {
+                    sum += array[i] * array[i];
+                }
+            }
             // end
-
+            
             return sum;
         }
         public int[] Task3(int[] array)
@@ -25,6 +60,14 @@
             int[] negatives = null;
 
             // code here
+            negatives = new int[0];
+            if (array.Length == 0)
+            {
+                return negatives;
+            }
+            int maxIndex = 0;
+            int minIndex = 0;
+            for (int i = 0; i < array.Length; i++)
 
             // end
 
